@@ -1,41 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include("header") %>
+    <div class="box" id="heading">
+        <h1>
+            <%= listTitle %>
+        </h1>
+    </div>
+    <div class="box">
+        <% for( let i=0; i < newListItems.length; i++ ) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%= newListItems[i] %>
+                </p>
+            </div>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/styles.css">
-        <title>EJS-Tutorial</title>
-    </head>
+            <% } %>
 
-    <body>
-        <div class="box" id="heading">
-            <h1>
-                <%= listTitle %>
-            </h1>
-        </div>
-        <div class="box">
-            <% for( let i=0; i < newListItems.length; i++ ) { %>
-                <div class="item">
-                    <input type="checkbox">
-                    <p>
-                        <%= newListItems[i] %>
-                    </p>
-                </div>
+                <form action="/" method="post" class="item">
+                    <input type="text" name="newItem" placeholder="Add Item" autocomplete="off">
+                    <button type="submit" name="list" value=<% listTitle %> >+</button>
+                </form>
+    </div>
 
-                <% } %>
-
-                    <form action="/" method="post" class="item">
-                        <input type="text" name="newItem" placeholder="Add Item" autocomplete="off">
-                        <button type="submit" name="list" value=<% listTitle %> >+</button>
-                    </form>
-        </div>
-
-
-
-
-
-    </body>
-
-</html>
+    <%- include("footer") %>
