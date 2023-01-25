@@ -45,6 +45,11 @@ app.post("/work", (req, res) => {
 	res.redirect("/work")
 })
 
+//About Route
+app.get("/about", (req, res) => {
+	res.render("about")
+})
+
 app.listen(4000, () => {
 	console.log("Server is running on port 4000")
 })
