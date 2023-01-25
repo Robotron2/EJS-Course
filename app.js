@@ -7,18 +7,15 @@ app.set("view engine", "ejs") //important!!
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public")) //use static  files like CSS
 
+//Use local modules
+
+const date = require(`${__dirname}/date.js`)
+
 let items = []
 let workItems = []
 
 app.get("/", (req, res) => {
-	let today = new Date()
-	let options = {
-		weekday: "long",
-		// year: "numeric",
-		month: "long",
-		day: "numeric"
-	}
-	let day = today.toLocaleDateString("en-US", options)
+	let day = date()
 	res.render("list", { listTitle: day, newListItems: items })
 })
 
