@@ -5,6 +5,7 @@ const app = express()
 app.set("view engine", "ejs") //important!!
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static("public")) //use static  files like CSS
 
 let items = []
 
